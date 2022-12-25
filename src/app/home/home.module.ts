@@ -4,6 +4,7 @@ import { MainHomeComponent } from './components/main-home/main-home.component';
 import { ServicesModule } from '../services/services.module';
 import { OurTeamComponent } from './components/our-team/our-team.component';
 import { OurClientsComponent } from './components/our-clients/our-clients.component';
+import { AboutComponent } from './components/about/about.component';
 
 
 
@@ -12,6 +13,7 @@ import { OurClientsComponent } from './components/our-clients/our-clients.compon
     MainHomeComponent,
     OurTeamComponent,
     OurClientsComponent,
+    AboutComponent,
   ],
   imports: [
     CommonModule,
