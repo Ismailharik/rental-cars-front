@@ -1,0 +1,13 @@
+.text-primary {
+    color: #F77D0A !important;
+}
+.h1, h1 {
+    font-size: calc(1.375rem + 1.5vw);
+}
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #F77D0A;
+    border-color: #F77D0A;
+}

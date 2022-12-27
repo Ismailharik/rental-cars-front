@@ -4,6 +4,8 @@ import { OurContactsComponent } from "./contact/components/our-contacts/our-cont
 import { AboutComponent } from "./home/components/about/about.component";
 import { MainHomeComponent } from "./home/components/main-home/main-home.component";
 import { OurServicesComponent } from "./services/components/our-services/our-services.component";
+import { BookingCarComponent } from "./shop/components/booking-car/booking-car.component";
+import { CarDetailsComponent } from "./shop/components/car-details/car-details.component";
 import { OurShopComponent } from "./shop/components/our-shop/our-shop.component";
 
 
@@ -13,6 +15,8 @@ const routes: Routes = [
     {path:'contact',component:OurContactsComponent},
     {path:'services',component:OurServicesComponent},
     {path:'shop',component:OurShopComponent},
+    {path:'shop/car-details',component:CarDetailsComponent},
+    {path:'shop/booking-car',component:BookingCarComponent},
     {path:'**',redirectTo:"home",pathMatch:"full"},
 
 ];

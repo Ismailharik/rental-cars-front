@@ -1,0 +1,13 @@
+.team-carousel .owl-nav, .related-carousel .owl-nav {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    top: calc(50% - 30px);
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}

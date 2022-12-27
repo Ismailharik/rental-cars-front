@@ -4,13 +4,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
-import { FooterComponent } from './compoenets/footer/footer.component';
-import { HeaderComponent } from './compoenets/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HeaderCarouselComponent } from './components/header-carousel/header-carousel.component';
+import { OurBrandsComponent } from './components/our-brands/our-brands.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    HeaderCarouselComponent,
+    OurBrandsComponent
   ],
   imports: [
     CommonModule,
@@ -18,9 +23,11 @@ import { HeaderComponent } from './compoenets/header/header.component';
     FormsModule,
     RouterModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CarouselModule
   ],
-  exports:[    CommonModule,
+  exports:[  
+    CommonModule,
     BrowserModule,
     FormsModule,
     RouterModule,
@@ -28,7 +35,7 @@ import { HeaderComponent } from './compoenets/header/header.component';
     ReactiveFormsModule,
     FooterComponent,
     HeaderComponent,
-    
+    OurBrandsComponent
   ]
 })
 export class SharedModule { }
