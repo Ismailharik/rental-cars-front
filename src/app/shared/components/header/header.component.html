@@ -53,8 +53,8 @@
                         <a href="#" class="nav-link dropdown-toggle"  data-toggle="dropdown">Cars</a>
                         <div class="dropdown-menu rounded-0 m-0">
                             <a [routerLink]="['/shop']"  routerLinkActive="active"  class="dropdown-item">Car Listing</a>
-                            <a  [routerLink]="['/shop']" routerLinkActive="active"  class="dropdown-item">Car Detail</a>
-                            <a  [routerLink]="['/shop']" routerLinkActive="active"  class="dropdown-item">Car Booking</a>
+                            <a  [routerLink]="['/shop/car-details']" routerLinkActive="active"  class="dropdown-item">Car Detail</a>
+                            <a  [routerLink]="['/shop/booking-car']" routerLinkActive="active"  class="dropdown-item">Car Booking</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
@@ -64,7 +64,7 @@
                             <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                         </div>
                     </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="contact.html"  [routerLink]="['contact']" routerLinkActive="active" class="nav-item nav-link">Contact</a>
                 </div>
             </div>
         </nav>

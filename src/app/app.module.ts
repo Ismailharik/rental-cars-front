@@ -9,7 +9,7 @@ import { ShopModule } from './shop/shop.module';
 import { SharedModule } from './shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -20,12 +20,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        AppRoutingModule,
+        AppRoutingModule,   
+        NgbModule,
         SharedModule,
         HomeModule,
-        ServicesModule,
-        ShopModule,
-        NgbModule
+        ServicesModule, 
+ 
+        ShopModule,   
+    ],exports:[
+
     ]
 })
 

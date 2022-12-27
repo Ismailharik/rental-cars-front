@@ -5,7 +5,9 @@ import { CarDetailsComponent } from './components/car-details/car-details.compon
 import { RelatedCarsComponent } from './components/related-cars/related-cars.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BookingCarComponent } from './components/booking-car/booking-car.component';
-
+import { FormsModule} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -17,7 +19,11 @@ import { BookingCarComponent } from './components/booking-car/booking-car.compon
   ],
   imports: [
     CommonModule,
-    CarouselModule 
+    CarouselModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    NgbPaginationModule,
+    NgbTypeaheadModule ,
   ],
   exports:[
   ]
