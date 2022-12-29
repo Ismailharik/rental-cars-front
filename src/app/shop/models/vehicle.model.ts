@@ -1,3 +1,4 @@
+import { Category } from "./category.model"
 
 export interface Vehicle{
     id: number,
@@ -10,4 +11,5 @@ export interface Vehicle{
     images:[],
     promo:Object,
     officeId:number
+    category:Category
 }
