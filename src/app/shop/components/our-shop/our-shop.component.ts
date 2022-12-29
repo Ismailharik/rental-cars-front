@@ -30,24 +30,33 @@ export class OurShopComponent implements OnInit {
       next: resp => {
         this.vehicles = resp;
         console.log(this.vehicles);
-
       },
       error: err => {
         console.log(err);
+      },
+      complete : ()=>{
+        this.refreshCountries()
       }
     })
   }
   findVehiclesByLocations(officeId: string) {
-    this.vehicleServices.getAllVehiclesByLocation(officeId).subscribe({
+    if (officeId == "0") {
+      console.log("ddddddddddddddddddddddddd");
+      
+      this.getAllVehicles()
+     
+    } else {
+      this.vehicleServices.getAllVehiclesByLocation(officeId).subscribe({
+        next: resp => {
+          this.vehicles = resp
+          this.refreshCountries()
+        },
+        error: err => {
+          console.log(err);
+        }
+      })
+    }
 
-      next: resp => {
-        this.vehicles = resp
-        this.refreshCountries()
-      },
-      error: err => {
-        console.log(err);
-      }
-    })
   }
 
   /* I should just call my api to give me next page 
@@ -70,22 +79,18 @@ export class OurShopComponent implements OnInit {
   filterVehicleByCategory(categoryId: string) {
     const filtredVehicles = []
     for (const vehicle of this.vehicles) {
-      //console.log(vehicle);
       if (vehicle.category.id == categoryId) {
         filtredVehicles.push(vehicle)
       }
     }
-
     this.vehiclesShown = filtredVehicles;
-    // console.log("fitlred Vehicles");
-    // console.log(filtredVehicles);
   }
   filterByName(name: string) {
     const filtredVehicles = []
     for (const vehicle of this.vehicles) {
       //console.log(vehicle);
-      if (vehicle.title.toLocaleLowerCase().includes(name.toLocaleLowerCase()) 
-      || vehicle.description.toLocaleLowerCase().includes(name.toLocaleLowerCase())) {
+      if (vehicle.title.toLocaleLowerCase().includes(name.toLocaleLowerCase())
+        || vehicle.description.toLocaleLowerCase().includes(name.toLocaleLowerCase())) {
         filtredVehicles.push(vehicle)
       }
     }

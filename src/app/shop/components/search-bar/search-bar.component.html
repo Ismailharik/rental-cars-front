@@ -5,7 +5,7 @@
             <select class="custom-select px-4 mb-3" style="height: 50px;"
              #locationsId (change)="onSelectLocation(locationsId.value)" *ngIf="offices">
              
-                <option selected > Pickup Location</option>
+                <option selected value="{{0}}">All locations</option>
                 <option value="{{office.id}}" *ngFor="let office of offices" >{{office.city}}</option>
             </select>
         </div>

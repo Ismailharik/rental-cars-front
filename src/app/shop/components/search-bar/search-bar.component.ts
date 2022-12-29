@@ -54,6 +54,8 @@ export class SearchBarComponent implements OnInit {
   }
 
   onSelectLocation(selectedLocation: string) {
+    console.log(selectedLocation);
+    
     this.locationId.emit(selectedLocation)
   }
   onSelectCategory(selectedCategory: string) {
