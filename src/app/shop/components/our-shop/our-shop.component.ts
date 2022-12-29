@@ -34,17 +34,15 @@ export class OurShopComponent implements OnInit {
       error: err => {
         console.log(err);
       },
-      complete : ()=>{
+      complete: () => {
         this.refreshCountries()
       }
     })
   }
   findVehiclesByLocations(officeId: string) {
     if (officeId == "0") {
-      console.log("ddddddddddddddddddddddddd");
-      
       this.getAllVehicles()
-     
+
     } else {
       this.vehicleServices.getAllVehiclesByLocation(officeId).subscribe({
         next: resp => {
@@ -92,6 +90,44 @@ export class OurShopComponent implements OnInit {
       if (vehicle.title.toLocaleLowerCase().includes(name.toLocaleLowerCase())
         || vehicle.description.toLocaleLowerCase().includes(name.toLocaleLowerCase())) {
         filtredVehicles.push(vehicle)
+      }
+    }
+    this.vehiclesShown = filtredVehicles;
+  }
+
+  multipleSearch(ListOfEvents: string[]) {
+    console.log(ListOfEvents);
+    let minPrice = parseInt(ListOfEvents[0])
+    let maxPrice = parseInt(ListOfEvents[1])
+    const keyword = ListOfEvents[2]
+    let date = parseInt(ListOfEvents[3])
+
+    if (Number.isNaN(minPrice)) {
+      minPrice = 0
+    }
+    if (Number.isNaN(maxPrice)) {
+      maxPrice = 1000000
+    }
+
+    if (Number.isNaN(date)) {
+      date = 0
+    }
+
+    const filtredVehicles = []
+    for (const vehicle of this.vehicles) {
+      if (
+        (vehicle.title.toLocaleLowerCase().includes(keyword.toLocaleLowerCase()) ||
+          vehicle.description.toLocaleLowerCase().includes(keyword.toLocaleLowerCase())
+        )
+        &&(vehicle.dailyPrice >= minPrice && vehicle.dailyPrice <= maxPrice)
+      ) {
+        if (date != 0) {
+          if (new Date(vehicle.dateFirstCirculation).getFullYear() == date) {
+            filtredVehicles.push(vehicle)
+          }
+        } else {
+          filtredVehicles.push(vehicle)
+        }
       }
     }
     this.vehiclesShown = filtredVehicles;

@@ -16,7 +16,8 @@ export class SearchBarComponent implements OnInit {
 
   @Output() locationId = new EventEmitter<string>();
   @Output() categoryId = new EventEmitter<string>();
-  @Output() searchByName = new EventEmitter<string>();
+
+  @Output() search = new EventEmitter<string[]>();
   constructor(private vehicleServices: VehicleServices) { }
 
   ngOnInit(): void {
@@ -41,6 +42,7 @@ export class SearchBarComponent implements OnInit {
   }
 
   getAllCategories() {
+
     this.vehicleServices.getAllCategories().subscribe({
       next: (resp: any) => {
         this.categories = resp._embedded.categories;
@@ -62,8 +64,16 @@ export class SearchBarComponent implements OnInit {
    // console.log(selectedCategory);
     this.categoryId.emit(selectedCategory)
   }
-  onSearchByName(name:string){
-    console.log(name);
-    this.searchByName.emit(name)
+  onSearch(minPrice:string,maxPrice:string,name:string,date:string){
+    console.log(date);
+    const ListOfEvents=[];
+    ListOfEvents.push(minPrice)
+    ListOfEvents.push(maxPrice)
+    ListOfEvents.push(name)
+    ListOfEvents.push(date)
+    this.search.emit(ListOfEvents)
+    
   }
+
+
 }
