@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Output, EventEmitter } from '@angular/core';
+import { Office } from '../../models/office.model';
+import { VehicleServices } from '../../services/shop.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchBarComponent implements OnInit {
 
-  constructor() { }
+  offices!: Office[]
+  @Output() locationId = new EventEmitter<string>();
+  constructor(private vehicleServices: VehicleServices) { }
 
   ngOnInit(): void {
+    this.getAllOffices();
   }
 
+  getAllOffices() {
+    {
+      this.vehicleServices.getAllOffices().subscribe({
+        next: (resp: any) => {
+          //this.offices=resp;
+          this.offices = resp._embedded.offices;
+          //console.log(resp._embedded.offices);
+        },
+        error: err => {
+          console.log(err);
+        }
+      })
+
+    }
+  }
+  onSelected(selectedItem:string){
+    this.locationId.emit(selectedItem)
+  }
 }

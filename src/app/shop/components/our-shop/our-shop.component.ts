@@ -29,13 +29,27 @@ export class OurShopComponent implements OnInit {
     this.vehicleServices.getAllVehicles().subscribe({
       next: resp => {
         this.vehicles=resp;
-        console.log(this.vehicles);
       },
       error: err => { 
         console.log(err) ;
       }
     })
-  
+  }
+  findVehiclesByLocations(officeId:string){
+    this.vehicleServices.getAllVehiclesByLocation(officeId).subscribe({
+
+      next : resp=>{
+        this.vehicles = resp
+        console.log(resp);
+        this.refreshCountries()
+      },
+      error : err =>{
+        console.log(err);
+        
+      }
+    })
+    console.log(event);
+      
   }
 
   /* I should just call my api to give me next page 

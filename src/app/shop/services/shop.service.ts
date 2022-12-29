@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Office } from '../models/office.model';
 import { Vehicle } from '../models/vehicle.model';
 
 @Injectable({
@@ -18,5 +19,12 @@ export class VehicleServices {
     return this.httpClient.get<Vehicle[]>(environment.host+"/vehicles");
   }
 
+  getAllOffices():Observable<Office[]> {
+    return this.httpClient.get<Office[]>(environment.host+"/offices");
+  }
+  getAllVehiclesByLocation(officeId:string):Observable<Vehicle[]> {
+    return this.httpClient.get<Vehicle[]>(environment.host+"/vehicles/location/"+officeId);
+  }
+  
 
 }
