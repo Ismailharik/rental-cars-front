@@ -7,7 +7,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BookingCarComponent } from './components/booking-car/booking-car.component';
 import { FormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap'
+import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootst
     CarDetailsComponent,
     RelatedCarsComponent,
     BookingCarComponent,
+    SearchBarComponent,
   ],
   imports: [
     CommonModule,
