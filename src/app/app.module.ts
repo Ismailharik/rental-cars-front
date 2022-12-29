@@ -22,9 +22,12 @@ import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootst
         BrowserAnimationsModule,
         AppRoutingModule,   
         NgbModule,
+        NgbPaginationModule,
+        NgbTypeaheadModule,
         SharedModule,
         HomeModule,
         ServicesModule, 
+
  
         ShopModule,   
     ],exports:[

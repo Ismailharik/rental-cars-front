@@ -35,6 +35,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     ReactiveFormsModule,
     FooterComponent,
     HeaderComponent,
+    HeaderCarouselComponent,
     OurBrandsComponent
   ]
 })

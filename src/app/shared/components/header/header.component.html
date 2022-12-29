@@ -49,12 +49,12 @@
                     <a [routerLink]="['/home']"  routerLinkActive="active"  class="nav-item nav-link ">Home</a>
                     <a [routerLink]="['/about']" routerLinkActive="active"   class="nav-item nav-link">About</a>
                     <a [routerLink]="['/services']" routerLinkActive="active"   class="nav-item nav-link">Service</a>
-                    <div class="nav-item dropdown">
+                    <div class="nav-item dropdown" routerLinkActive="active" >
                         <a href="#" class="nav-link dropdown-toggle"  data-toggle="dropdown">Cars</a>
-                        <div class="dropdown-menu rounded-0 m-0">
-                            <a [routerLink]="['/shop']"  routerLinkActive="active"  class="dropdown-item">Car Listing</a>
-                            <a  [routerLink]="['/shop/car-details']" routerLinkActive="active"  class="dropdown-item">Car Detail</a>
-                            <a  [routerLink]="['/shop/booking-car']" routerLinkActive="active"  class="dropdown-item">Car Booking</a>
+                        <div class="dropdown-menu rounded-0 m-0" >
+                            <a [routerLink]="['/shop']"    class="dropdown-item">Car Listing</a>
+                            <a  [routerLink]="['/shop/car-details']"  class="dropdown-item">Car Detail</a>
+                            <a  [routerLink]="['/shop/booking-car']"   class="dropdown-item">Car Booking</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
@@ -74,48 +74,47 @@
 
 
 <!-- Search Start -->
-<div class="container-fluid bg-white pt-3 px-lg-5">
-    <div class="row mx-n2">
-        <div class="col-xl-2 col-lg-4 col-md-6 px-2">
-            <select class="custom-select px-4 mb-3" style="height: 50px;">
-                <option selected>Pickup Location</option>
-                <option value="1">Location 1</option>
-                <option value="2">Location 2</option>
-                <option value="3">Location 3</option>
-            </select>
-        </div>
-        <div class="col-xl-2 col-lg-4 col-md-6 px-2">
-            <select class="custom-select px-4 mb-3" style="height: 50px;">
-                <option selected>Drop Location</option>
-                <option value="1">Location 1</option>
-                <option value="2">Location 2</option>
-                <option value="3">Location 3</option>
-            </select>
-        </div>
-        <div class="col-xl-2 col-lg-4 col-md-6 px-2">
-            <div class="date mb-3" id="date" data-target-input="nearest">
-                <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Pickup Date"
-                    data-target="#date" data-toggle="datetimepicker" />
+        <div class="container-fluid bg-white pt-3 px-lg-5">
+            <div class="row mx-n2">
+                <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                    <select class="custom-select px-4 mb-3" style="height: 50px;">
+                        <option selected>Pickup Location</option>
+                        <option value="1">Location 1</option>
+                        <option value="2">Location 2</option>
+                        <option value="3">Location 3</option>
+                    </select>
+                </div>
+                <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                    <select class="custom-select px-4 mb-3" style="height: 50px;">
+                        <option selected>Drop Location</option>
+                        <option value="1">Location 1</option>
+                        <option value="2">Location 2</option>
+                        <option value="3">Location 3</option>
+                    </select>
+                </div>
+                <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                    <div class="date mb-3" id="date" data-target-input="nearest">
+                        <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Pickup Date"
+                            data-target="#date" data-toggle="datetimepicker" />
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                    <div class="time mb-3" id="time" data-target-input="nearest">
+                        <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Pickup Time"
+                            data-target="#time" data-toggle="datetimepicker" />
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                    <select class="custom-select px-4 mb-3" style="height: 50px;">
+                        <option selected>Select A Car</option>
+                        <option value="1">Car 1</option>
+                        <option value="2">Car 1</option>
+                        <option value="3">Car 1</option>
+                    </select>
+                </div>
+                <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                    <button class="btn btn-primary btn-block mb-3" type="submit" style="height: 50px;">Search</button>
+                </div>
             </div>
         </div>
-        <div class="col-xl-2 col-lg-4 col-md-6 px-2">
-            <div class="time mb-3" id="time" data-target-input="nearest">
-                <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Pickup Time"
-                    data-target="#time" data-toggle="datetimepicker" />
-            </div>
-        </div>
-        <div class="col-xl-2 col-lg-4 col-md-6 px-2">
-            <select class="custom-select px-4 mb-3" style="height: 50px;">
-                <option selected>Select A Car</option>
-                <option value="1">Car 1</option>
-                <option value="2">Car 1</option>
-                <option value="3">Car 1</option>
-            </select>
-        </div>
-        <div class="col-xl-2 col-lg-4 col-md-6 px-2">
-            <button class="btn btn-primary btn-block mb-3" type="submit" style="height: 50px;">Search</button>
-        </div>
-    </div>
-</div>
 <!-- Search End -->
-<app-header-carousel></app-header-carousel>

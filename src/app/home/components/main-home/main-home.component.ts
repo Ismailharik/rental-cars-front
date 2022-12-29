@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Vehicle } from 'src/app/shop/models/vehicle.model';
+import { HomeServices } from '../../services/home-services.service';
 
 @Component({
   selector: 'app-main-home',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainHomeComponent implements OnInit {
 
-  constructor() { }
-
+  vehicles!:Vehicle[]
+  constructor(private homeServices: HomeServices) { }
   ngOnInit(): void {
+
   }
 
 }

@@ -6,7 +6,7 @@ import { OurServicesComponent } from './components/our-services/our-services.com
 
 @NgModule({
   declarations: [
-    OurServicesComponent,
+    OurServicesComponent
   ],
   imports: [
     CommonModule

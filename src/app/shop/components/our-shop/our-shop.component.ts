@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Country, COUNTRIES } from '../../models/car.model';
+import { Vehicle } from '../../models/vehicle.model';
+import { VehicleServices } from '../../services/shop.service';
 
 @Component({
   selector: 'app-our-shop',
@@ -8,24 +9,44 @@ import { Country, COUNTRIES } from '../../models/car.model';
 })
 export class OurShopComponent implements OnInit {
 
-	page = 1;
-	pageSize = 4;
-	collectionSize = COUNTRIES.length;
-  countries!: Country[];
+	offset = 0;// which page
+	pageSize = 6;
 
+  vehicles !: Vehicle[]
+  vehiclesShown!:Vehicle[]
+  collectionSize:number=5;
+	// collectionSizes = this.vehicles.length;
 
-  constructor() { 
+  constructor(private vehicleServices:VehicleServices) { 
     this.refreshCountries();
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.getAllVehicles()
+//    this.collectionSize = this.vehicles.length
+  }
+
+  getAllVehicles(){
+    this.vehicleServices.getAllVehicles().subscribe({
+      next: resp => {
+        this.vehicles=resp;
+        console.log(this.vehicles);
+      },
+      error: err => { 
+        console.log(err) ;
+      }
+    })
+  
   }
 
   /* I should just call my api to give me next page 
     For more details https://ng-bootstrap.github.io/#/components/pagination/overview
   
   */
-  refreshCountries() {
-		this.countries = COUNTRIES.map((cmd:Country, i:number) => ({Id: i + 1, ...cmd})).slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
-	}
+  refreshCountries(){
+      if(this.vehicles){
+            this.vehiclesShown=this.vehicles
+        .map((cmd:Vehicle, i:number) => ({Id: i + 1, ...cmd}))
+        .slice((this.offset - 1) * this.pageSize, (this.offset - 1) * this.pageSize + this.pageSize);
+      }
+    }
 }
