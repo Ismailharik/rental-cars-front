@@ -27,7 +27,7 @@
                         <span>{{vehicle.nbrOfKm}}KM</span>
                     </div>
                 </div>
-                <a class="btn btn-primary px-3" href="">${{vehicle.dailyPrice}}/Day</a>
+                <a class="btn btn-primary px-3" routerLink="/shop/car-details" [state]="{'vehicle':vehicle}" >${{vehicle.dailyPrice}}/Day</a>
             </div>
         </div>
     </div>

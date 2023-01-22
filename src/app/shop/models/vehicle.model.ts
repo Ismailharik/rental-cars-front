@@ -8,6 +8,8 @@ export interface Vehicle{
     dateFirstCirculation: Date,
     nbrOfKm:number,
     available:boolean,
+    model:number,
+    franchise:number,
     images:[],
     promo:Object,
     officeId:number

@@ -29,7 +29,7 @@ export class OurShopComponent implements OnInit {
     this.vehicleServices.getAllVehicles().subscribe({
       next: resp => {
         this.vehicles = resp;
-        console.log(this.vehicles);
+        // console.log(this.vehicles);
       },
       error: err => {
         console.log(err);
