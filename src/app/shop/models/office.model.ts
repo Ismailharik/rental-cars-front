@@ -1,7 +1,7 @@
 import { Vehicle } from "./vehicle.model"
 
 export interface Office{
-    id:string
+    id:number
     city:string
     phone:string
     address:string

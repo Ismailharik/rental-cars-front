@@ -1,4 +1,5 @@
 import { Category } from "./category.model"
+import { Office } from "./office.model"
 
 export interface Vehicle{
     id: number,
@@ -12,6 +13,7 @@ export interface Vehicle{
     franchise:number,
     images:[],
     promo:Object,
-    officeId:number
-    category:Category
+    officeId:number,
+    category:Category,
+    
 }

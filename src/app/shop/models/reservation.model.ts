@@ -1,9 +1,9 @@
-import { User } from "./user.model";
+import { Customer } from "./user.model";
 
 export interface Reservation{
-    user:User,
+    customer:Customer,
     duration:number,
-    location:number,
     pickUpDate:Date,
+    officeId:number,
     vehicleId:number
 }

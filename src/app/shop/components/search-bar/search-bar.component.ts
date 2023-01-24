@@ -30,7 +30,7 @@ export class SearchBarComponent implements OnInit {
       this.vehicleServices.getAllOffices().subscribe({
         next: (resp: any) => {
           //this.offices=resp;
-          this.offices = resp._embedded.offices;
+          this.offices = resp.offices;
           //console.log(resp._embedded.offices);
         },
         error: err => {
