@@ -28,6 +28,7 @@ export class CarDetailsComponent implements OnInit {
     vehicleId: 0,
     pickUpDate:new Date ,
   }
+  vehicleImages:any[]=[];
 
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -53,6 +54,7 @@ export class CarDetailsComponent implements OnInit {
           console.log(err);
         }
       })
+      
     }
 
     this.vehicleServices.getAllOffices().subscribe({
@@ -64,6 +66,8 @@ export class CarDetailsComponent implements OnInit {
 
       }
     })
+
+
   }
   submitReservation(phone:string,duration:string,pickUpDate:string) {
 
