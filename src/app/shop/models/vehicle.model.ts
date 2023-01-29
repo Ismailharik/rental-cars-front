@@ -12,7 +12,7 @@ export interface Vehicle{
     model:number,
     franchise:number,
     images:[],
-    urls:[],
+    urls:string[],
     promo:Object,
     officeId:number,
     category:Category,

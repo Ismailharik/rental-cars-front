@@ -61,11 +61,10 @@ export class SearchBarComponent implements OnInit {
     this.locationId.emit(selectedLocation)
   }
   onSelectCategory(selectedCategory: string) {
-   // console.log(selectedCategory);
+   console.log(selectedCategory);
     this.categoryId.emit(selectedCategory)
   }
   onSearch(minPrice:string,maxPrice:string,name:string,date:string){
-    console.log(date);
     const ListOfEvents=[];
     ListOfEvents.push(minPrice)
     ListOfEvents.push(maxPrice)

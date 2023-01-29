@@ -75,10 +75,16 @@ export class OurShopComponent implements OnInit {
       already present on vehciles array 
   */
   filterVehicleByCategory(categoryId: string) {
+    console.log(categoryId);
+    
     const filtredVehicles = []
     for (const vehicle of this.vehicles) {
+      console.log(vehicle.category.id);
+      
       if (vehicle.category.id == categoryId) {
         filtredVehicles.push(vehicle)
+        console.log(vehicle);
+        
       }
     }
     this.vehiclesShown = filtredVehicles;
@@ -110,6 +116,8 @@ export class OurShopComponent implements OnInit {
     }
 
     if (Number.isNaN(date)) {
+      console.log("model null");
+      
       date = 0
     }
 
@@ -122,7 +130,9 @@ export class OurShopComponent implements OnInit {
         &&(vehicle.dailyPrice >= minPrice && vehicle.dailyPrice <= maxPrice)
       ) {
         if (date != 0) {
-          if (new Date(vehicle.dateFirstCirculation).getFullYear() == date) {
+          console.log(new Date(vehicle.dateFirstCirculation).getFullYear());
+          
+          if (vehicle.model == date) {
             filtredVehicles.push(vehicle)
           }
         } else {

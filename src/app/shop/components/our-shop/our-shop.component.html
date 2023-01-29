@@ -11,7 +11,7 @@
     <div class="row" *ngIf="vehiclesShown.length>0; else NoVehicleAvailable">
         <div class="col-lg-4 col-md-6 mb-2"  *ngFor="let vehicle of vehiclesShown">
             <div class="rent-item mb-4">
-                <img class="img-fluid mb-4" src="../../../../assets/img/car-rent-1.png" alt="">
+                <img class="img-fluid mb-4" [src]="vehicle.urls[0]" alt="vehicle image">
                 <h4 class="text-uppercase mb-4">{{vehicle.title}}</h4>
                 <div class="d-flex justify-content-center mb-4">
                     <div class="px-2">
