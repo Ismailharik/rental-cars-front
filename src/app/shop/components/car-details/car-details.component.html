@@ -4,7 +4,7 @@
         <div class="row" *ngIf="vehicle">
             <div class="col-lg-8 mb-5">
                 <h1 class="display-4 text-uppercase mb-5">{{vehicle.title}}</h1>
-                <div class="row mx-n2 mb-3" >
+                <div class="row mx-n2 mb-3">
                     <div class="col-md-3 col-6 px-2 pb-2" *ngFor="let url of vehicle.urls">
                         <img class="img-fluid w-100" [src]="url" alt="" style="height: 170px">
                     </div>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="col-md-3 col-6 mb-2">
                         <i class="fa fa-cogs text-primary mr-2"></i>
-                        <span>franchise: {{vehicle.franchise}}</span>
+                        <span>Franchise: {{vehicle.franchise}}</span>
                     </div>
                     <div class="col-md-3 col-6 mb-2">
                         <i class="fa fa-road text-primary mr-2"></i>
@@ -61,7 +61,7 @@
                         <span style="color: black;font-weight: 700;">Office Details : </span>
                         <span>City : {{office.city}} ,</span>
                         <span>address: {{office.address}} ,</span>
-                        <span> Phone :<a [href]="office.phone" >{{office.phone}} </a></span>
+                        <span> Phone :<a [href]="office.phone">{{office.phone}} </a></span>
                     </div>
 
                 </div>
@@ -79,27 +79,26 @@
                             class="form-control p-4">
                     </div>
                     <div class="form-group">
-                        <input type="tel" placeholder="Phone Number"required #phoneNumber
-                            class="form-control p-4">
+                        <input type="tel" placeholder="Phone Number" required #phoneNumber class="form-control p-4">
                     </div>
-                    
+
                     <div class="form-group">
-                        <input type="number"  placeholder="Duration" required #duration
-                            class="form-control p-4">
+                        <input type="number" placeholder="Duration" required #duration class="form-control p-4">
                     </div>
                     <div class="form-group">
-                        <input type="date" placeholder="Pick Up Date" required #pickUpDate
-                            class="form-control p-4">
+                        <input type="date" placeholder="Pick Up Date" required #pickUpDate class="form-control p-4">
                     </div>
                     <div class="form-group" *ngIf="offices">
-                        <select class="form-control custom-select px-4" [(ngModel)]="reservation.officeId" style="height: 50px;">
-                            <option  selected disabled  value="0">Pickup Location</option>
-                            <option  *ngFor="let office of offices" value="{{office.id}}">{{office.city}}</option>
+                        <select class="form-control custom-select px-4" [(ngModel)]="reservation.officeId"
+                            style="height: 50px;">
+                            <option selected disabled value="0">Pickup Location</option>
+                            <option *ngFor="let office of offices" value="{{office.id}}">{{office.city}}</option>
                         </select>
                     </div>
                     <div class="form-group mb-0">
                         <button class="btn btn-primary btn-block" type="submit" style="height: 50px;"
-                            (click)="submitReservation(phoneNumber.value,duration.value,pickUpDate.value)">Check Now</button>
+                            (click)="submitReservation(phoneNumber.value,duration.value,pickUpDate.value)">Check
+                            Now</button>
                     </div>
                 </div>
             </div>
@@ -109,3 +108,12 @@
 
 
 <app-related-cars></app-related-cars>
+<div class="toast text-center "  [ngClass]="{'d-none':!alert}">
+    <div class="toast-header">
+        <strong class="me-auto">Order Submitted</strong>
+        <small class="text-muted"><a href=""><i class="fa fa-solid fa-check"></i></a></small>
+    </div>
+    <div class="toast-body">
+        Thanks , we will call you sooner 
+    </div>
+</div>

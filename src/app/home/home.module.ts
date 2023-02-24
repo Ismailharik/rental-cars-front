@@ -24,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
         CommonModule,
         SharedModule,
         ServicesModule,
-        HttpClientModule
+        HttpClientModule,
     ]
 })
 export class HomeModule { }

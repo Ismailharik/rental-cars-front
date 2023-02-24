@@ -1,52 +1,53 @@
-<app-search-bar (locationId)="findVehiclesByLocations($event)"
-    (categoryId)="filterVehicleByCategory($event)"
-    (search)="multipleSearch($event)"
-></app-search-bar>
+<app-search-bar (locationId)="findVehiclesByLocations($event)" (categoryId)="filterVehicleByCategory($event)"
+    (search)="multipleSearch($event)"></app-search-bar>
 <!-- Rent A Car Start -->
 <div class="container-fluid py-5">
 
 
-<div class="container pt-5 pb-3" *ngIf="vehiclesShown">
-    <h1 class="display-4 text-uppercase text-center mb-5">Find Your Car</h1>
-    <div class="row" *ngIf="vehiclesShown.length>0; else NoVehicleAvailable">
-        <div class="col-lg-4 col-md-6 mb-2"  *ngFor="let vehicle of vehiclesShown">
-            <div class="rent-item mb-4">
-                <img class="img-fluid mb-4" [src]="vehicle.urls[0]" alt="vehicle image">
-                <h4 class="text-uppercase mb-4">{{vehicle.title}}</h4>
-                <div class="d-flex justify-content-center mb-4">
-                    <div class="px-2">
-                        <i class="fa fa-car text-primary mr-1"></i>
-                        <span>{{vehicle.dateFirstCirculation|date}}</span>
-                    </div>
-                    <div class="px-2 border-left border-right">
-                        <i class="fa fa-cogs text-primary mr-1"></i>
-                        <span>AUTO</span>
-                    </div>
-                    <div class="px-2">
-                        <i class="fa fa-road text-primary mr-1"></i>
-                        <span>{{vehicle.nbrOfKm}}KM</span>
-                    </div>
-                </div>
-                <a class="btn btn-primary px-3" routerLink="/shop/car-details" [state]="{'vehicle':vehicle}" >${{vehicle.dailyPrice}}/Day</a>
-            </div>
-        </div>
-    </div>
-    <ng-template #NoVehicleAvailable>
-        <div class="row">
-            <div class="col-lg-4 col-md-6 mb-2 ml-auto mr-auto">
-                <div class="service-item d-flex flex-column justify-content-center px-4 mb-4">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                        <div class="d-flex align-items-center justify-content-center bg-primary ml-auto mr-auto" style="width: 80px; height: 80px;">
-                            <i class="fa fa-2x fa-taxi text-secondary"></i>
+    <div class="container pt-5 pb-3" *ngIf="vehiclesShown">
+
+        <h1 class="display-4 text-uppercase text-center mb-5">Find Your Car</h1>
+        <div class="row" *ngIf="vehiclesShown.length>0; else NoVehicleAvailable">
+            <div class="col-lg-4 col-md-6 mb-2" *ngFor="let vehicle of vehiclesShown">
+                <div class="rent-item mb-4">
+                    <img class="img-fluid mb-4" [src]="vehicle.urls[0]" alt="vehicle image">
+                    <h4 class="text-uppercase mb-4">{{vehicle.title}}</h4>
+                    <div class="d-flex justify-content-center mb-4">
+                        <div class="px-2">
+                            <i class="fa fa-car text-primary mr-1"></i>
+                            <span>{{vehicle.dateFirstCirculation|date}}</span>
+                        </div>
+                        <div class="px-2 border-left border-right">
+                            <i class="fa fa-cogs text-primary mr-1"></i>
+                            <span>AUTO</span>
+                        </div>
+                        <div class="px-2">
+                            <i class="fa fa-road text-primary mr-1"></i>
+                            <span>{{vehicle.nbrOfKm}}KM</span>
                         </div>
                     </div>
-                    <h4 class="text-uppercase mb-3">there are no vehicles </h4>
-                    <p class="m-0">Check other locations and categories</p>
+                    <a class="btn btn-primary px-3" routerLink="/shop/car-details"
+                        [state]="{'vehicle':vehicle}">${{vehicle.dailyPrice}}/Day</a>
                 </div>
             </div>
         </div>
-    </ng-template>
-</div>
+        <ng-template #NoVehicleAvailable>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-2 ml-auto mr-auto">
+                    <div class="service-item d-flex flex-column justify-content-center px-4 mb-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center justify-content-center bg-primary ml-auto mr-auto"
+                                style="width: 80px; height: 80px;">
+                                <i class="fa fa-2x fa-taxi text-secondary"></i>
+                            </div>
+                        </div>
+                        <h4 class="text-uppercase mb-3">there are no vehicles </h4>
+                        <p class="m-0">Check other locations and categories</p>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </div>
 </div>
 
 
@@ -61,3 +62,4 @@
         <option [ngValue]="9">9 items per page</option>
     </select>
 </div>
+

@@ -28,6 +28,8 @@ export class CarDetailsComponent implements OnInit {
     vehicleId: 0,
     pickUpDate:new Date ,
   }
+  alert:boolean=false
+
   vehicleImages:any[]=[];
 
 
@@ -78,11 +80,9 @@ export class CarDetailsComponent implements OnInit {
     this.reservation.officeId=this.office.id
     console.log(this.reservation);
     
-    this.vehicleServices.addReservation(this.reservation).subscribe(
-      {
+    this.vehicleServices.addReservation(this.reservation).subscribe({
         next : resp=>{
-          console.log(resp);
-          alert("Vehicle Reserved successfully")
+          this.showAlert()
         },
         error: err=>{
           console.log(err);
@@ -90,7 +90,10 @@ export class CarDetailsComponent implements OnInit {
         }
       }
     )
-
+  }
+  showAlert(){
+    this.alert=true
+    setTimeout(() => (this.alert = false), 5000);
   }
 
 }
