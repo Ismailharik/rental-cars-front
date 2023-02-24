@@ -26,9 +26,7 @@ import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootst
         NgbTypeaheadModule,
         SharedModule,
         HomeModule,
-        ServicesModule, 
-
- 
+        ServicesModule,  
         ShopModule,   
     ],exports:[
 

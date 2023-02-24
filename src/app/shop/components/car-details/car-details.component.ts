@@ -82,6 +82,7 @@ export class CarDetailsComponent implements OnInit {
       {
         next : resp=>{
           console.log(resp);
+          alert("Vehicle Reserved successfully")
         },
         error: err=>{
           console.log(err);

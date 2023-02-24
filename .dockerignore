@@ -1,0 +1,5 @@
+# in this file we specify all files or directories that we don't want to use in our image to make it faster
+# node_modules
+npm-debug.log
+.git
+.gitingnore
