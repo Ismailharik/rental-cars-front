@@ -106,8 +106,13 @@
     </div>
 </div>
 
+<!-- Start displaying releted Cars -->
+<div *ngIf="vehicle">
+<app-related-cars *ngIf="vehicle.category" [officeId]="vehicle.category.id"></app-related-cars>
+</div>
+<!-- End displaying releted Cars -->
 
-<app-related-cars></app-related-cars>
+
 <div class="toast text-center "  [ngClass]="{'d-none':!alert}">
     <div class="toast-header">
         <strong class="me-auto">Order Submitted</strong>

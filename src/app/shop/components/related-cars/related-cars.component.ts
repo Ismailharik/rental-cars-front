@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Vehicle } from '../../models/vehicle.model';
+import { VehicleServices } from '../../services/shop.service';
 
 
 @Component({
@@ -9,9 +11,12 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class RelatedCarsComponent implements OnInit {
 
-  constructor() { }
+  @Input() officeId!:string
+  vehicles!: Vehicle[]
+  constructor(private vehicleServices : VehicleServices) { }
 
   ngOnInit(): void {
+    this.getVehiclesByCategory()
   }
   customOptions: OwlOptions = {
     // loop: true,
@@ -45,5 +50,16 @@ export class RelatedCarsComponent implements OnInit {
         items: 4
       }
     },
+  }
+
+  getVehiclesByCategory(){
+    this.vehicleServices.getVehicleByOffice(this.officeId).subscribe({
+      next : resp => {
+        console.log(resp);
+        
+            this.vehicles = resp
+      },
+      error  : err => console.log(err)
+    })
   }
 }

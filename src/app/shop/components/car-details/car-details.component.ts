@@ -41,8 +41,6 @@ export class CarDetailsComponent implements OnInit {
     this.activatedRoute.paramMap
       .pipe(map(() => window.history.state)).subscribe(res => {
         this.vehicle = res.vehicle
-        console.log(this.vehicle);
-
         if (!res.vehicle)
           this.router.navigate(['/shop'])
       })

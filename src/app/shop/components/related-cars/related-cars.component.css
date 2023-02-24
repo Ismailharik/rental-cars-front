@@ -5,7 +5,7 @@
     top: calc(50% - 30px);
     left: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     z-index: 1;
 }
 *, *::before, *::after {

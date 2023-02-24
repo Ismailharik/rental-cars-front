@@ -12,6 +12,9 @@ import { Vehicle } from '../models/vehicle.model';
   providedIn: 'root'
 })
 export class VehicleServices {
+  getVehicleByOffice(officeId: string):Observable<Vehicle[]> {
+    return this.httpClient.get<Vehicle[]>(environment.host+"/vehicles/location/"+officeId )
+  }
 
 
   constructor(private httpClient: HttpClient) { }
